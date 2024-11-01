@@ -42,5 +42,9 @@
 	},
 	"workbench.editorAssociations": {
 		"*.dmi": "dmiEditor.dmiEditor"
-	}
+	},
+	"dreammaker.autoUpdate": true,
+	"dreammaker.byondPath": [
+		"D:\\Programs\\BYOND"
+	]
 }
