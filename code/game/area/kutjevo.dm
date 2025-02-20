@@ -15,11 +15,13 @@
 	name = "Kutjevo - Dropship Alamo Landing Zone"
 	icon_state = "shuttle"
 	icon = 'icons/turf/area_kutjevo.dmi'
+	linked_lz = DROPSHIP_LZ1
 
 /area/shuttle/drop2/kutjevo
 	name = "Kutjevo - Dropship Normandy Landing Zone"
 	icon_state = "shuttle2"
 	icon = 'icons/turf/area_kutjevo.dmi'
+	linked_lz = DROPSHIP_LZ2
 
 /area/kutjevo/exterior
 	name = "Kutjevo - Exterior"
@@ -34,16 +36,15 @@
 	requires_power = 1
 
 /area/kutjevo/interior/oob
-	name = "Kutjevo -  Out Of Bounds"
+	name = "Kutjevo - Out Of Bounds"
 	ceiling = CEILING_MAX
 	icon_state = "oob"
+	requires_power = FALSE
 	is_resin_allowed = FALSE
-	flags_area = AREA_NOTUNNEL
+	flags_area = AREA_NOTUNNEL|AREA_UNWEEDABLE
 
 /area/kutjevo/interior/oob/dev_room
 	name = "Kutjevo - Credits Room"
-	is_resin_allowed = FALSE
-	flags_area = AREA_NOTUNNEL
 	icon_state = "kutjevo"
 
 //exterior map areas
@@ -52,17 +53,17 @@
 	name = "Kutjevo Auxilliary Landing Zone"
 	icon_state = "lz_pad"
 	weather_enabled = FALSE
-	unlimited_power = 1//ds computer
-	is_resin_allowed = FALSE
+	unlimited_power = 1 //ds computer
 	is_landing_zone = TRUE
+	linked_lz = DROPSHIP_LZ2
 
 /area/kutjevo/exterior/lz_dunes
 	name = "Kutjevo - Landing Zone Dunes"
 	icon_state = "lz_dunes"
-	is_resin_allowed = FALSE
 	weather_enabled =  FALSE
-	unlimited_power = 1//DS Computer
+	unlimited_power = 1 //DS Computer
 	is_landing_zone = TRUE
+	linked_lz = DROPSHIP_LZ1
 
 /area/kutjevo/exterior/lz_river
 	name = "Kutjevo - Power Station River"
@@ -251,11 +252,25 @@
 	name = "Kutjevo - Abandoned Construction Interior"
 	ceiling = CEILING_METAL
 	icon_state = "construction_int"
+	unoviable_timer = FALSE
+
+/area/kutjevo/interior/construction/north
+	name = "Kutjevo - Northern Abandoned Construction Interior"
+	icon_state = "construction"
+
+/area/kutjevo/interior/construction/east
+	name = "Kutjevo - Eastern Abandoned Construction Interior"
+	icon_state = "construction"
+
+/area/kutjevo/interior/construction/signal_tower
+	name = "Kutjevo - Abandoned Signal Tower"
+	icon_state = "construction2"
 
 /area/kutjevo/interior/foremans_office
 	name = "Kutjevo - Foreman's Office"
 	ceiling = CEILING_METAL
 	icon_state = "foremans"
+	unoviable_timer = FALSE
 
 /area/kutjevo/interior/botany_bay_int
 	name = "Kutjevo - Space Weed Farm Interior"
@@ -313,3 +328,4 @@
 	ceiling = CEILING_DEEP_UNDERGROUND
 	icon_state = "colony_caves_3"
 	minimap_color = MINIMAP_AREA_ENGI_CAVE
+	unoviable_timer = FALSE

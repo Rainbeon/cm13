@@ -18,7 +18,7 @@
 
 /datum/emergency_call/cryo_squad_equipped/spawn_candidates(quiet_launch, announce_incoming, override_spawn_loc)
 	var/datum/squad/marine/cryo/cryo_squad = GLOB.RoleAuthority.squads_by_type[/datum/squad/marine/cryo]
-	leaders = cryo_squad.num_leaders
+	leaders = cryo_squad.roles_in[JOB_SQUAD_LEADER]
 	. = ..()
 	if(length(members))
 		shipwide_ai_announcement("Successfully deployed [length(members)] Foxtrot marines.")
@@ -29,7 +29,8 @@
 		name_of_spawn = /obj/effect/landmark/ert_spawns/distress_wo
 	var/turf/spawn_loc = override_spawn_loc ? override_spawn_loc : get_spawn_point()
 
-	if(!istype(spawn_loc)) return //Didn't find a useable spawn point.
+	if(!istype(spawn_loc))
+		return //Didn't find a useable spawn point.
 
 	var/mob/living/carbon/human/H = new(spawn_loc)
 	M.transfer_to(H, TRUE)
